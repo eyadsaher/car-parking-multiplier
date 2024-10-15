@@ -15,9 +15,4 @@ export const styles: { [key: string]: CSSProperties } = {
     outline: "none",
     marginTop: "30px",
   },
-  buttonHover: {
-    backgroundColor: "#c82333",
-    transform: "scale(1.05)",
-    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
-  },
 };
