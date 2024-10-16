@@ -1,7 +1,7 @@
 import { carPlateStyles } from "./carPlate.styles";
 
 interface carPlateProps {
-  carPlate: number;
+  carPlate: string;
 }
 
 function CarPlate({ carPlate }: carPlateProps) {

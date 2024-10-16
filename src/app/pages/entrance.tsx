@@ -4,21 +4,19 @@ import CarPlate from "../components/carPlate";
 
 interface EntranceProps {
   carSize: string;
-  sectionToGo: string | null;
-  carPlate: number;
+  sectionToGo: string;
+  carPlate: string;
+  error: string | null; // Add error prop
   onExit: () => void;
 }
 
-const getCarSizeName = (size: string) => {
-  const sizeMap: Record<string, string> = {
-    s: "Small",
-    m: "Medium",
-    l: "Large",
-  };
-  return sizeMap[size];
-};
-
-function Entrance({ carSize, sectionToGo, carPlate, onExit }: EntranceProps) {
+function Entrance({
+  carSize,
+  sectionToGo,
+  carPlate,
+  error,
+  onExit,
+}: EntranceProps) {
   const [countdown, setCountdown] = useState(15);
 
   useEffect(() => {
@@ -39,14 +37,46 @@ function Entrance({ carSize, sectionToGo, carPlate, onExit }: EntranceProps) {
     };
   }, [onExit]);
 
-  if (!sectionToGo) {
+  if (error) {
+    return (
+      <div style={entranceStyles.errorContainer}>
+        <h1 style={entranceStyles.errorMessage}>
+          Car is too far
+          <br />
+          Please come closer 🚙
+        </h1>
+        {countdown <= 5 && (
+          <h2 style={entranceStyles.countdown}>
+            ⚠️ Time remaining: {countdown} seconds ⚠️
+          </h2>
+        )}
+      </div>
+    );
+  } else if (
+    carSize === "ExtraLarge" &&
+    sectionToGo === "No Free Parking Places"
+  ) {
     return (
       <div style={entranceStyles.errorContainer}>
         <CarPlate carPlate={carPlate} />
         <h1 style={entranceStyles.errorMessage}>
-          No available spaces
-          <br />
-          Please check again in 10 Mins ⏳
+          {carSize} sized car detected 📸
+          <br /> Sorry no available spaces for <br /> your size in our parking.
+        </h1>
+        {countdown <= 5 && (
+          <h2 style={entranceStyles.countdown}>
+            ⚠️ Time remaining: {countdown} seconds ⚠️
+          </h2>
+        )}
+      </div>
+    );
+  } else if (sectionToGo === "No Free Parking Places") {
+    return (
+      <div style={entranceStyles.errorContainer}>
+        <CarPlate carPlate={carPlate} />
+        <h1 style={entranceStyles.errorMessage}>
+          {carSize} sized car detected 📸
+          <br /> Sorry no available spaces at the moment please check later ⌛️
         </h1>
         {countdown <= 5 && (
           <h2 style={entranceStyles.countdown}>
@@ -61,8 +91,8 @@ function Entrance({ carSize, sectionToGo, carPlate, onExit }: EntranceProps) {
     <div style={entranceStyles.successContainer}>
       <CarPlate carPlate={carPlate} />
       <h1 style={entranceStyles.infoText}>
-        {getCarSizeName(carSize)} sized car detected 📸
-        <br /> Please proceed to section {sectionToGo.toUpperCase()}
+        {carSize} sized car detected 📸
+        <br /> Please proceed to {sectionToGo}
       </h1>
       {countdown <= 5 && (
         <h2 style={entranceStyles.countdown}>
