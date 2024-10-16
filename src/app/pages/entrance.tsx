@@ -52,10 +52,7 @@ function Entrance({
         )}
       </div>
     );
-  } else if (
-    carSize === "ExtraLarge" &&
-    sectionToGo === "No Free Parking Places"
-  ) {
+  } else if (carSize === "ExtraLarge") {
     return (
       <div style={entranceStyles.errorContainer}>
         <CarPlate carPlate={carPlate} />
