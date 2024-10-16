@@ -1,19 +1,27 @@
+import { useState } from "react";
 import Button from "../components/button";
+import Entrance from "./entrance";
 import { styles } from "./welcome.styles";
 
 function Welcome() {
+  const [showEntrance, setShowEntrance] = useState(false);
+  const carSize = "m";
+  const sectionToGo = "m";
+  const carPlate = 283822;
+
   const handlePaymentClick = () => {
-    const carSize = "s";
-    const sectionToGo = "s";
-
-    let message = "no place sorry pookie";
-
-    if (sectionToGo === "s" || sectionToGo === "m" || sectionToGo === "l") {
-      message = `Hey, your car size is ${carSize.toUpperCase()} and you should enter section ${sectionToGo.toUpperCase()} please.`;
-    }
-
-    alert(message);
+    setShowEntrance(true);
   };
+
+  if (showEntrance) {
+    return (
+      <Entrance
+        carSize={carSize}
+        sectionToGo={sectionToGo}
+        carPlate={carPlate}
+      />
+    );
+  }
 
   return (
     <div style={styles.welcomeContainer}>
