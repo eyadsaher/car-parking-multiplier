@@ -13,12 +13,17 @@ function Welcome() {
     setShowEntrance(true);
   };
 
+  const handleExit = () => {
+    setShowEntrance(false);
+  };
+
   if (showEntrance) {
     return (
       <Entrance
         carSize={carSize}
         sectionToGo={sectionToGo}
         carPlate={carPlate}
+        onExit={handleExit}
       />
     );
   }

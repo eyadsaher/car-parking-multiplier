@@ -31,4 +31,10 @@ export const entranceStyles: { [key: string]: CSSProperties } = {
     color: "#ffffff",
     textShadow: "1px 1px 4px rgba(0, 0, 0, 0.3)",
   },
+  countdown: {
+    color: "black",
+    fontWeight: "bold",
+    fontSize: "3rem",
+    marginTop: "10px",
+  },
 };
