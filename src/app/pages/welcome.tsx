@@ -6,7 +6,7 @@ import { styles } from "./welcome.styles";
 function Welcome() {
   const [showEntrance, setShowEntrance] = useState(false);
   const carSize = "m";
-  const sectionToGo = "m";
+  const sectionToGo = "B";
   const carPlate = 283822;
 
   const handlePaymentClick = () => {
