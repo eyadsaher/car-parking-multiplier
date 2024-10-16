@@ -36,7 +36,7 @@ function Welcome() {
           <span style={styles.perHour}>per hour</span>
         </p>
       </div>
-      <h1 style={styles.title}>Welcome to Vienna Central Parking</h1>
+      <h1 style={styles.title}>Welcome to Freiburg Central Parking</h1>
       <Button onClick={handlePaymentClick} label="Open Gate" />
     </div>
   );
