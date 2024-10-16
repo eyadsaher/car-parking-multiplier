@@ -14,16 +14,28 @@ export const styles: { [key: string]: CSSProperties } = {
   priceBox: {
     backgroundColor: "#ffffff",
     padding: "10px 20px",
-    borderRadius: "10px",
-    boxShadow: "0 4px 8px rgba(255, 255, 255, 0.1)",
-    marginBottom: "20px",
+    borderRadius: "15px",
+    boxShadow: "0 6px 10px rgba(255, 255, 255, 0.2)",
+    marginBottom: "30px",
+    transition: "transform 0.3s ease-in-out",
   },
   priceInfo: {
-    fontSize: "2rem",
+    fontSize: "2.5rem",
     color: "#000000",
     fontWeight: "bold",
     letterSpacing: "1px",
     margin: 0,
+    display: "inline-block",
+  },
+  rateText: {
+    color: "#FF5733",
+    fontStyle: "italic",
+    fontWeight: "600",
+    marginRight: "8px",
+  },
+  perHour: {
+    color: "#3498DB",
+    fontWeight: "400",
   },
   title: {
     fontSize: "6rem",

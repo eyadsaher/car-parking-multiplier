@@ -18,7 +18,10 @@ function Welcome() {
   return (
     <div style={styles.welcomeContainer}>
       <div style={styles.priceBox}>
-        <p style={styles.priceInfo}>1 hour = 2 euros</p>
+        <p style={styles.priceInfo}>
+          <span style={styles.rateText}>Rate: </span>2 EUROS{" "}
+          <span style={styles.perHour}>per hour</span>
+        </p>
       </div>
       <h1 style={styles.title}>Welcome to Vienna Central Parking</h1>
       <Button onClick={handlePaymentClick} label="Open Gate" />
